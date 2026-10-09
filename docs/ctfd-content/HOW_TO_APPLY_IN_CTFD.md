@@ -46,3 +46,23 @@ Set Requirements so the player sees:
 S1 → S2 → S3
 
 (Use 'Behavior if not unlocked = Hidden' for a strict linear pathway.)
+
+## S5 - Lateral Movement (Forensics)
+- Description: challenges/s5.md
+- Flag: NOVATECH{deleted_transfer_recovered}
+- Requirements: S4
+- Attachments (Files tab):
+  - challenges/member3/stage5/player/server_image.dd
+  - challenges/member3/stage5/player/server_image.dd.sha256
+  - challenges/member3/stage5/player/clue.txt
+- Hints: hints/s5.md
+
+## S6 - The Exfiltration Tool (Reverse Engineering)
+- Description: challenges/s6.md
+- Flag: (Use the S6 flag configured for your binary)
+- Requirements: S5
+- Attachments (Files tab):
+  - challenges/member3/stage6/player/exfil_tool.elf
+  - challenges/member3/stage6/player/exfil_tool.elf.sha256
+  - challenges/member3/stage6/player/clue.txt
+- Hints: hints/s6.md
