@@ -9,3 +9,7 @@ challenges/member2/s2-planning-notes/payload.txt
 
 # safety: prevent accidental nested repo folder
 BreachLine-CTF-PlayBox/
+
+# Stage5 solver outputs
+challenges/member3/stage5/solver/recovered/
+
