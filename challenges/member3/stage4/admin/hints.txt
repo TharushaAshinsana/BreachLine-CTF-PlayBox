@@ -1,0 +1,11 @@
+Hint 1:
+Hexadecimal is the storage format. Decode it into bytes before
+investigating the transformation.
+
+Hint 2:
+For XOR, ciphertext XOR known plaintext reveals the corresponding
+key-stream bytes. Use the communication header from the clue.
+
+Hint 3:
+Look for the shortest repeating pattern in the recovered key stream.
+Repeat that key across the complete ciphertext to decrypt it.
