@@ -1,0 +1,10 @@
+NovaTech Incident Evidence — Intercepted Communication
+
+The intercepted bytes were exported as hexadecimal.
+The original communication was written in English.
+
+An older communication template began with:
+NOVATECH INTERNAL COMMUNICATION
+
+Investigate whether a short repeating pattern was used to
+transform the message. Recover the message and locate the flag.

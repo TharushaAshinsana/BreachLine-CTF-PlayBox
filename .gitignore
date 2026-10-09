@@ -1,0 +1,11 @@
+# S2: do not commit local inputs/outputs (avoid flag leakage)
+challenges/member2/s2-planning-notes/artifact-src/*
+!challenges/member2/s2-planning-notes/artifact-src/.gitkeep
+
+challenges/member2/s2-planning-notes/dist/*
+!challenges/member2/s2-planning-notes/dist/.gitkeep
+
+challenges/member2/s2-planning-notes/payload.txt
+
+# safety: prevent accidental nested repo folder
+BreachLine-CTF-PlayBox/
