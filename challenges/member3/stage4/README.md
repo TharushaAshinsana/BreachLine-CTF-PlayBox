@@ -3,16 +3,21 @@
 Owner: Member 3 — IT24100054
 Domain: Cryptography
 Target difficulty: Moderate
-Status: Standalone prototype; platform integration pending.
+
+## Status
+
+Prototype integrated with S3 evidence delivery and CTFd. Final group flag and S5 clue alignment pending.
 
 ## Challenge
 
-Recover an intercepted English communication encrypted with
-repeating-key XOR and exported as hexadecimal.
+Recover an intercepted English communication encrypted with repeating-key XOR and exported as hexadecimal.
 
 Players receive:
-- player/intercepted_ciphertext.hex
-- player/clue.txt
+
+* `player/intercepted_ciphertext.hex`
+* `player/clue.txt`
+
+Players download these files through the Stage 3 admin portal.
 
 Admin and solver files must not be distributed to players.
 
@@ -20,23 +25,31 @@ Admin and solver files must not be distributed to players.
 
 Python 3. No third-party Python packages are required.
 
-Run commands from the NovaTech-Member3 project root.
+Run commands from the `BreachLine-CTF-PlayBox` project root.
 
-## Generate / Reset — Windows
+### Generate / Reset — Windows
 
-    py stage4/admin/generate.py
+```
+py challenges/member3/stage4/admin/generate.py
+```
 
-## Solve — Windows
+### Solve — Windows
 
-    py stage4/solver/solve.py
+```
+py challenges/member3/stage4/solver/solve.py
+```
 
-## Generate / Reset — Ubuntu
+### Generate / Reset — Ubuntu
 
-    python3 stage4/admin/generate.py
+```
+python3 challenges/member3/stage4/admin/generate.py
+```
 
-## Solve — Ubuntu
+### Solve — Ubuntu
 
-    python3 stage4/solver/solve.py
+```
+python3 challenges/member3/stage4/solver/solve.py
+```
 
 ## Intended Solution
 
@@ -49,29 +62,72 @@ Run commands from the NovaTech-Member3 project root.
 
 The solver does not import or read the generator.
 
+## S3 Evidence Delivery
+
+Docker Compose mounts the player directory read-only into `s3-web`:
+
+```
+./challenges/member3/stage4/player:/app/s4-evidence:ro
+```
+
+Evidence routes:
+
+* `/evidence/s4/intercepted_ciphertext.hex`
+* `/evidence/s4/clue.txt`
+
+Unauthenticated ciphertext requests redirected to the login page. Both files returned HTTP 200 during authenticated testing.
+
+## CTFd Configuration
+
+* Name: S4 — Intercepted Comms
+* Category: Cryptography
+* Type: Standard
+* Points: 100 for prototype testing
+* State: Visible (verify after final integration)
+* Flag type: Static, case sensitive
+* Development flag: `NOVATECH{xor_key_reuse}`
+
+Files are delivered through the S3 portal rather than attached directly to the CTFd challenge.
+
+Two hints were configured for prototype testing:
+
+1. Convert the hexadecimal text into bytes. Compare the beginning with the known communication header in `clue.txt`.
+2. For XOR, ciphertext XOR known plaintext reveals the key stream. Look for its shortest repeating pattern.
+
 ## Reset Behaviour
 
-Running the generator overwrites the player ciphertext with the
-baseline version defined in the generator. It does not reset CTFd
-accounts, submissions, scores or challenge unlocks.
+Running the generator overwrites the player ciphertext with the baseline version defined in the generator.
+
+It does not reset CTFd accounts, submissions, scores or challenge unlocks.
+
+If the flag changes, regenerate the ciphertext and update the CTFd static flag to match.
 
 ## Current Manual Verification
 
-- Generator completed successfully.
-- Plaintext size: 311 bytes.
-- Ciphertext size: 311 bytes.
-- Solver recovered a key length of 5.
-- Solver recovered the key and displayed the original message.
+* Generator completed successfully during standalone testing.
+* Plaintext size: 311 bytes.
+* Ciphertext size: 311 bytes.
+* S4 ciphertext and clue downloaded successfully through S3.
+* Solver recovered key length 5 and key `ORBIT`.
+* Solver recovered the English message and development flag.
+* CTFd accepted the correct flag during submission testing.
+* The test team received 100 points on the scoreboard.
+* Both CTFd hints opened successfully from the test player account.
+* CTFd rejected an incorrect flag during player testing.
+
+These results are from recorded prototype tests; rerun them after merging and deploying the final version.
 
 ## Pending Integration
 
-- Confirm the group's final flag format and replace the development flag.
-- Agree how S3 leads to or unlocks S4.
-- Align the decrypted S5 clue with the actual forensic challenge.
-- Configure flag validation and hints in CTFd.
-- Test the final player package and complete stage progression.
+* Confirm the group's final flag format and replace the development flag.
+* Align the decrypted S5 clue with the actual forensic challenge.
+* Verify both hints are accessible from a player account.
+* Verify an incorrect flag is rejected after final deployment.
+* Decide whether CTFd should enforce an S3 solve prerequisite.
+* Test the final player package and complete stage progression.
 
 ## Attribution
 
-Record assistance and external resources used during development.
-Development guidance and initial code were provided with ChatGPT assistance.
+Development guidance, initial code, integration guidance and verification support were provided with ChatGPT assistance.
+
+Record any additional assistance and external resources used during development.

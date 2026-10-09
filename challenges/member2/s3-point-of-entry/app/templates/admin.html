@@ -1,2 +1,24 @@
-<h2>Admin Area</h2>
-<p>Flag: {{ flag }}</p>
+
+
+<h2>NovaTech Admin Area</h2>
+<p>Stage 3 flag: {{ flag }}</p>
+
+<h3>Incident Evidence — Intercepted Communication</h3>
+<p>
+  An intercepted communication was recovered during the
+  portal investigation. Download the evidence and analyse
+  it for Stage 4.
+</p>
+
+<ul>
+  <li>
+    <a href="{{ url_for('s4_evidence', filename='intercepted_ciphertext.hex') }}">
+      Download intercepted ciphertext
+    </a>
+  </li>
+  <li>
+    <a href="{{ url_for('s4_evidence', filename='clue.txt') }}">
+      Download communication clue
+    </a>
+  </li>
+</ul>

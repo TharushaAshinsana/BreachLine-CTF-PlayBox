@@ -1,4 +1,7 @@
-from flask import Flask, request, render_template, redirect, session
+from flask import (
+    Flask, request, render_template, redirect,
+    session, send_from_directory, abort
+)
 import pymysql
 import os
 
@@ -75,6 +78,25 @@ def admin_area():
         conn.close()
 
     return render_template("admin.html", flag=flag)
+
+@app.get("/evidence/s4/<filename>")
+def s4_evidence(filename):
+    if session.get("role") != "admin":
+        return redirect("/login")
+
+    allowed_files = {
+        "intercepted_ciphertext.hex",
+        "clue.txt",
+    }
+
+    if filename not in allowed_files:
+        abort(404)
+
+    return send_from_directory(
+        "/app/s4-evidence",
+        filename,
+        as_attachment=True,
+    )
 
 
 if __name__ == "__main__":
