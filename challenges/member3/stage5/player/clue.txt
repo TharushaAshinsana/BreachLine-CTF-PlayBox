@@ -1,0 +1,6 @@
+NovaTech Incident Evidence - Server Image
+
+Analyse this synthetic filesystem image without modifying it.
+Correlate authentication logs and shell history.
+Locate and recover the deleted compressed artifact.
+Recover the flag and the clue for the next stage.
