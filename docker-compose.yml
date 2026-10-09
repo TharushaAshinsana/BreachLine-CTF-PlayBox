@@ -37,6 +37,38 @@ services:
     networks:
       - ctf-network
 
+  # S3 DB (challenge network only)
+  s3-db:
+    image: mariadb:10.11
+    container_name: breachline-s3-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: portal
+      MYSQL_USER: portal
+      MYSQL_PASSWORD: portalpass
+    networks:
+      - challenge-network
+    volumes:
+      - s3-db-data:/var/lib/mysql
+      - ./challenges/member2/s3-point-of-entry/db/seed.sql:/docker-entrypoint-initdb.d/01-seed.sql:ro
+
+  # S3 Web (challenge network only)
+  s3-web:
+    build: ./challenges/member2/s3-point-of-entry
+    container_name: breachline-s3-web
+    restart: unless-stopped
+    environment:
+      DB_HOST: s3-db
+      DB_USER: portal
+      DB_PASS: portalpass
+      DB_NAME: portal
+      APP_SECRET: change_me
+    depends_on:
+      - s3-db
+    networks:
+      - challenge-network
+
   nginx:
     image: nginx:alpine
     container_name: breachline-nginx
@@ -45,8 +77,10 @@ services:
       - "80:80"
     networks:
       - ctf-network
+      - challenge-network
     depends_on:
       - ctfd
+      - s3-web
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
 
@@ -54,6 +88,11 @@ networks:
   ctf-network:
     driver: bridge
 
+  challenge-network:
+    driver: bridge
+    internal: true
+
 volumes:
   ctfd-data:
   db-data:
+  s3-db-data:
