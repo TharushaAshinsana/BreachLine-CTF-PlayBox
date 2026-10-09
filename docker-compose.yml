@@ -68,6 +68,8 @@ services:
       - s3-db
     networks:
       - challenge-network
+    volumes:
+      - ./challenges/member3/stage4/player:/app/s4-evidence:ro  
 
   nginx:
     image: nginx:alpine
