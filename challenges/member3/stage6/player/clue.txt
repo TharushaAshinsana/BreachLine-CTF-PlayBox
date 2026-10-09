@@ -1,0 +1,21 @@
+NovaTech Incident Evidence — Recovered Utility
+
+The server investigation identified this Linux executable.
+It is a synthetic offline reverse-engineering challenge.
+
+Verify the supplied SHA256 before analysis.
+Inspect the executable to understand its input-validation logic.
+Reconstruct the recovery token, then run the program with it
+to obtain the final flag.
+
+Usage:
+    ./exfil_tool.elf <recovery-token>
+
+Environment:
+    Linux x86-64, including Ubuntu on WSL 2.
+
+After download, executable permission may need to be restored:
+    chmod +x exfil_tool.elf
+
+Suggested tools:
+    file, strings, objdump, Ghidra, gdb
