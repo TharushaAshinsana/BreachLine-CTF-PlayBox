@@ -8,6 +8,7 @@ services:
     environment:
       DATABASE_URL: mysql+pymysql://ctfd:ctfdpass@db:3306/ctfd
       REDIS_URL: redis://redis:6379
+      REVERSE_PROXY: "true"
     depends_on:
       - db
       - redis

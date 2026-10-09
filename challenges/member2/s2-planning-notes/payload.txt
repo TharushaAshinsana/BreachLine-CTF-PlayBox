@@ -1,0 +1,5 @@
+NovaTech - Planning Notes
+-------------------------
+Next target: employee portal.
+
+FLAG: NOVATECH{S2_PLANNING_NOTES_FLAG}
