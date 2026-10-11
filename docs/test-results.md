@@ -29,3 +29,11 @@ No test results recorded yet.
 
 ## Summary
 Testing has not started. Results will be updated after the challenges are implemented and tested.
+## Re-check after local verification - 2026-10-11 12:41:41
+- Docker stack up (compose up) OK
+- CTFd reachable via Nginx (localhost) OK
+- Portal route (portal.novatech.local) OK
+- Intra route (intra.novatech.local) OK
+- Artifacts present: S2/S4/S5/S6
+Result: PASS
+
