@@ -16,6 +16,7 @@ services:
       - ctf-network
     volumes:
       - ctfd-data:/var/uploads
+      - ./theme/static:/opt/CTFd/CTFd/themes/core/static/custom
 
   db:
     image: mariadb:10.11
