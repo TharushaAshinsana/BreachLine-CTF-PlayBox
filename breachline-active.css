@@ -1,0 +1,169 @@
+﻿:root {
+  --bl-bg: #030b16;
+  --bl-panel: #07182b;
+  --bl-border: #123858;
+  --bl-cyan: #00c8ff;
+  --bl-text: #e9f6ff;
+  --bl-muted: #91b5d2;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 50% 0%, #0b2b4b 0%, transparent 55%),
+    var(--bl-bg) !important;
+  color: var(--bl-text) !important;
+}
+
+.navbar {
+  background: rgba(3, 13, 27, .97) !important;
+  border-bottom: 1px solid var(--bl-border) !important;
+  box-shadow: 0 4px 25px #001b32 !important;
+}
+
+.navbar a, .navbar-brand {
+  color: var(--bl-text) !important;
+}
+
+a, a:hover {
+  color: var(--bl-cyan);
+}
+
+.jumbotron, .modal-content, .card, .table,
+.form-control, .custom-select {
+  background-color: var(--bl-panel) !important;
+  color: var(--bl-text) !important;
+  border-color: var(--bl-border) !important;
+}
+
+.card, .jumbotron {
+  border-radius: 14px !important;
+  box-shadow: 0 8px 28px rgba(0, 160, 255, .08);
+}
+
+.btn-primary {
+  background: linear-gradient(110deg, #007bff, #00c8ff) !important;
+  border: 1px solid #00c8ff !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(0, 200, 255, .18);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.15);
+  box-shadow: 0 0 22px rgba(0, 200, 255, .35);
+}
+
+.form-control:focus {
+  border-color: var(--bl-cyan) !important;
+  box-shadow: 0 0 0 .2rem rgba(0, 200, 255, .15) !important;
+}
+
+h1, h2, h3, h4 {
+  color: var(--bl-text);
+  letter-spacing: .3px;
+}
+
+.text-muted, small {
+  color: var(--bl-muted) !important;
+}
+
+hr {
+  border-color: var(--bl-border) !important;
+}
+
+::selection {
+  background: #007bff;
+  color: white;
+}
+
+/* BREACHLINE LOGIN EXPERIENCE */
+.bl-login-shell{min-height:calc(100vh - 100px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:42px 16px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 35%,#102d49 0%,#061321 48%,#030912 100%);color:#eaf7ff}
+.bl-login-glow{position:absolute;width:380px;height:380px;border-radius:50%;background:#00c8ff12;filter:blur(75px);pointer-events:none}
+.bl-login-card{position:relative;width:100%;max-width:465px;padding:38px 38px 25px;border:1px solid #1a4967;border-radius:18px;background:linear-gradient(145deg,#0c1d30f5,#071321f7);box-shadow:0 25px 90px #0008,0 0 35px #00c8ff0b}
+.bl-login-brand{text-align:center}
+.bl-login-icon{margin:0 auto 13px;width:52px;height:52px;display:grid;place-items:center;border:1px solid #00d9ff88;border-radius:15px;color:#00e5ff;font-size:30px;background:#00cfff0c;box-shadow:0 0 24px #00cfff18}
+.bl-eyebrow{font-size:10px;letter-spacing:3px;color:#7da6c5;font-weight:700}
+.bl-login-brand h1{font-size:38px;font-weight:900;letter-spacing:2px;color:#f4fbff;margin:12px 0 2px}
+.bl-login-brand h1 span{color:#00d9ff}
+.bl-tagline{font-size:13px;letter-spacing:3px;color:#80a7c2}
+.bl-login-divider{height:1px;background:linear-gradient(90deg,transparent,#1e6886,transparent);margin:25px 0}
+.bl-login-card h2{font-size:25px;font-weight:750;color:#f3f9ff;margin:0 0 5px}
+.bl-login-subtitle{font-size:13px;color:#8da9c1;margin-bottom:24px}
+.bl-field{margin-bottom:18px}
+.bl-field label{display:block;color:#c4d9e9;font-size:12px;font-weight:700;margin-bottom:8px}
+.bl-input{height:47px!important;background:#06101d!important;border:1px solid #23415b!important;border-radius:8px!important;color:#effaff!important;padding:11px 13px!important;box-shadow:none!important}
+.bl-input:focus{border-color:#00d9ff!important;box-shadow:0 0 0 3px #00d9ff18!important}
+.bl-input::placeholder{color:#5f7890!important}
+.bl-forgot{text-align:right;margin:0 0 20px;font-size:12px}
+.bl-login-card a{color:#00d9ff;text-decoration:none}
+.bl-login-card a:hover{color:#8cefff;text-decoration:underline}
+.bl-login-button{min-height:48px!important;border:1px solid #00d9ff!important;border-radius:8px!important;background:linear-gradient(100deg,#007fa9,#00bddd)!important;color:#00121d!important;font-size:12px!important;font-weight:900!important;letter-spacing:1px!important;transition:all .2s ease!important}
+.bl-login-button:hover{transform:translateY(-2px);box-shadow:0 8px 26px #00cfff35!important}
+.bl-register-note{text-align:center;margin:23px 0 25px;font-size:12px;color:#8da9c1}
+.bl-register-note a{font-weight:700;margin-left:4px}
+.bl-login-footer{display:flex;align-items:center;gap:7px;padding-top:16px;border-top:1px solid #173047;color:#6f91aa;font-size:9px;letter-spacing:1px}
+.bl-login-footer span:last-child{margin-left:auto}
+.bl-status-dot{width:6px;height:6px;background:#37f6a0;border-radius:50%;box-shadow:0 0 9px #37f6a0}
+.bl-login-bottom{position:relative;margin-top:23px;color:#56738c;font-size:9px;letter-spacing:2px;text-align:center}
+.bl-login-card .text-danger{color:#ff6680!important}
+@media(max-width:520px){.bl-login-card{padding:30px 22px 22px}.bl-login-brand h1{font-size:32px}.bl-login-shell{padding:25px 12px}}
+
+/* BREACHLINE MISSION DASHBOARD */
+.bl-dashboard{max-width:1450px;margin:auto;padding:22px 22px 0;color:#e9f6ff}
+.bl-hero{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;justify-content:space-between;min-height:340px;padding:45px 6%;border:1px solid #16405e;border-radius:18px;background:linear-gradient(115deg,#0b1d31,#071321 65%,#08253b);box-shadow:0 18px 55px #0003}
+.bl-hero-grid{position:absolute;inset:0;z-index:-1;opacity:.15;background-image:linear-gradient(#1c6385 1px,transparent 1px),linear-gradient(90deg,#1c6385 1px,transparent 1px);background-size:35px 35px;mask-image:linear-gradient(90deg,black,transparent)}
+.bl-hero-content{position:relative;z-index:2;max-width:600px}
+.bl-eyebrow,.bl-section-kicker{font-size:10px;font-weight:800;letter-spacing:2.5px;color:#77a9c9}
+.bl-hero .bl-eyebrow{display:flex;align-items:center;gap:9px}
+.bl-hero h1{font-size:clamp(43px,6vw,76px);font-weight:950;letter-spacing:3px;line-height:1.1;margin:18px 0 8px;color:#f3faff}
+.bl-hero h1 span,.bl-mission-heading h2 span{color:#00d9ff}
+.bl-hero-tagline{font-size:13px;font-weight:800;letter-spacing:5px;color:#00d9ff}
+.bl-hero-description{max-width:490px;font-size:14px;line-height:1.9;color:#9cb7cc;margin:17px 0 24px}
+.bl-explore-btn{display:inline-flex;gap:20px;align-items:center;padding:13px 19px;border:1px solid #00bfe9;border-radius:5px;background:#00c5ed10;color:#67e9ff!important;font-size:10px;font-weight:900;letter-spacing:1.4px;text-decoration:none!important;transition:.2s}
+.bl-explore-btn:hover{background:#00c5ed20;box-shadow:0 0 22px #00d9ff20}
+.bl-hero-art{position:relative;display:grid;place-items:center;width:270px;height:245px;flex-shrink:0}
+.bl-orbit{position:absolute;width:190px;height:190px;border:1px solid #00cfff55;border-radius:50%;transform:rotateX(65deg) rotate(-25deg)}
+.bl-orbit-two{width:235px;height:235px;transform:rotateX(65deg) rotate(40deg);border-color:#1384a855}
+.bl-core{width:105px;height:105px;display:grid;place-items:center;border:1px solid #00d9ff;border-radius:26px;transform:rotate(45deg);background:linear-gradient(135deg,#0b3047,#071522);box-shadow:0 0 45px #00bde922,inset 0 0 25px #00bde915}
+.bl-core span{transform:rotate(-45deg);font-size:31px;font-weight:950;color:#00d9ff;letter-spacing:2px}
+.bl-core i{position:absolute;width:7px;height:7px;border-radius:50%;background:#4cffb1;right:3px;top:3px;box-shadow:0 0 12px #4cffb1}
+.bl-art-label{position:absolute;bottom:2px;font-size:8px;letter-spacing:2px;color:#6e9cb9;white-space:nowrap}
+.bl-status-dot{display:inline-block;width:7px;height:7px;flex-shrink:0;border-radius:50%;background:#42f5a6;box-shadow:0 0 9px #42f5a6}
+.bl-mission-heading{display:flex;justify-content:space-between;align-items:center;gap:15px;margin:43px 3px 20px}
+.bl-mission-heading h2{margin:7px 0;font-size:29px;font-weight:900;letter-spacing:1.5px;color:#edf8ff}
+.bl-mission-heading p{margin:0;font-size:12px;color:#8ca9c1}
+.bl-live-label{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid #1d455d;border-radius:5px;color:#85b7cf;font-size:9px;letter-spacing:1.3px;white-space:nowrap}
+.bl-category{margin:29px 0 38px}
+.bl-category-heading{display:flex;align-items:center;gap:13px;margin-bottom:15px}
+.bl-category-symbol{display:grid;place-items:center;width:39px;height:39px;border:1px solid #1b526f;border-radius:8px;background:#0b2639;color:#00d9ff;font-size:23px}
+.bl-category-heading h3{font-size:17px;font-weight:800;color:#e4f5ff;margin:0 0 4px}
+.bl-category-heading p{font-size:9px;letter-spacing:2px;color:#6488a3;margin:0}
+.bl-category-line{height:1px;flex:1;background:linear-gradient(90deg,#1b526f,transparent);margin-left:8px}
+.bl-challenge-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
+.bl-challenge-slot{min-width:0}
+.bl-challenge-card{position:relative;display:flex;flex-direction:column;text-align:left;width:100%;height:100%;min-height:220px;padding:18px 17px 14px;overflow:hidden;border:1px solid #193d56;border-radius:10px;background:linear-gradient(145deg,#0c2033,#071321);color:#eaf7ff;transition:transform .2s,border-color .2s,box-shadow .2s}
+.bl-challenge-card:before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00d9ff,#1675ae,transparent)}
+.bl-challenge-card:hover{transform:translateY(-4px);border-color:#00bde0;box-shadow:0 12px 32px #0004,0 0 18px #00d9ff0d}
+.bl-card-top{display:flex;justify-content:space-between;align-items:center;gap:5px}
+.bl-card-index{font-size:8px;letter-spacing:1px;color:#7094ae}
+.bl-card-status{font-size:8px;font-weight:800;letter-spacing:.6px;color:#00cbe9}
+.bl-card-emblem{width:43px;height:43px;display:grid;place-items:center;margin:22px 0 13px;border:1px solid #174963;border-radius:10px;background:#0b2b40;color:#00d9ff;font-size:19px}
+.bl-challenge-card h4{font-size:15px;line-height:1.5;font-weight:800;margin:0 0 20px;color:#eff9ff;overflow-wrap:anywhere}
+.bl-card-bottom{display:flex;align-items:center;justify-content:space-between;gap:5px;margin-top:auto}
+.bl-card-bottom span{font-size:8px;letter-spacing:.8px;color:#7290a8}
+.bl-card-bottom strong{font-size:11px;color:#6be8ff;white-space:nowrap}
+.bl-card-progress{height:3px;background:#193349;margin-top:12px;overflow:hidden;border-radius:5px}
+.bl-card-progress span{display:block;height:100%;background:#00d9ff;box-shadow:0 0 8px #00d9ff;transition:width .3s}
+.bl-card-action{padding-top:12px;font-size:9px;font-weight:900;letter-spacing:1px;color:#82b8d3}
+.bl-challenge-solved{border-color:#17694f;background:linear-gradient(145deg,#0b2929,#071821)}
+.bl-challenge-solved:before{background:linear-gradient(90deg,#35f4a1,#168a71,transparent)}
+.bl-challenge-solved .bl-card-status,.bl-challenge-solved .bl-card-emblem,.bl-challenge-solved .bl-card-action{color:#43efad}
+.bl-challenge-solved .bl-card-emblem{border-color:#1d664f;background:#0c302d}
+.bl-challenge-solved .bl-card-progress span{background:#35e9a1;box-shadow:0 0 8px #35e9a1}
+.bl-loading{min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#00d9ff}
+.bl-loading p{margin-top:17px;font-size:10px;letter-spacing:3px;color:#81a8c1}
+.bl-dashboard-footer{display:flex;justify-content:space-between;gap:15px;padding:23px 0;margin-top:25px;border-top:1px solid #173349;color:#64839c;font-size:9px;letter-spacing:1px}
+@media(max-width:1100px){.bl-challenge-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.bl-hero-art{transform:scale(.85);margin-right:-15px}}
+@media(max-width:760px){.bl-hero{padding:32px 25px;min-height:300px}.bl-hero-art{display:none}.bl-challenge-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.bl-mission-heading h2{font-size:24px}.bl-dashboard-footer{flex-direction:column}}
+@media(max-width:440px){.bl-dashboard{padding:12px 10px 0}.bl-challenge-grid{grid-template-columns:1fr}.bl-challenge-card{min-height:195px}.bl-mission-heading{align-items:flex-start;flex-direction:column}.bl-hero h1{font-size:40px}.bl-hero-tagline{letter-spacing:3px}}

@@ -1,0 +1,78 @@
+﻿:root {
+  --bl-bg: #030b16;
+  --bl-panel: #07182b;
+  --bl-border: #123858;
+  --bl-cyan: #00c8ff;
+  --bl-text: #e9f6ff;
+  --bl-muted: #91b5d2;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 50% 0%, #0b2b4b 0%, transparent 55%),
+    var(--bl-bg) !important;
+  color: var(--bl-text) !important;
+}
+
+.navbar {
+  background: rgba(3, 13, 27, .97) !important;
+  border-bottom: 1px solid var(--bl-border) !important;
+  box-shadow: 0 4px 25px #001b32 !important;
+}
+
+.navbar a, .navbar-brand {
+  color: var(--bl-text) !important;
+}
+
+a, a:hover {
+  color: var(--bl-cyan);
+}
+
+.jumbotron, .modal-content, .card, .table,
+.form-control, .custom-select {
+  background-color: var(--bl-panel) !important;
+  color: var(--bl-text) !important;
+  border-color: var(--bl-border) !important;
+}
+
+.card, .jumbotron {
+  border-radius: 14px !important;
+  box-shadow: 0 8px 28px rgba(0, 160, 255, .08);
+}
+
+.btn-primary {
+  background: linear-gradient(110deg, #007bff, #00c8ff) !important;
+  border: 1px solid #00c8ff !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(0, 200, 255, .18);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.15);
+  box-shadow: 0 0 22px rgba(0, 200, 255, .35);
+}
+
+.form-control:focus {
+  border-color: var(--bl-cyan) !important;
+  box-shadow: 0 0 0 .2rem rgba(0, 200, 255, .15) !important;
+}
+
+h1, h2, h3, h4 {
+  color: var(--bl-text);
+  letter-spacing: .3px;
+}
+
+.text-muted, small {
+  color: var(--bl-muted) !important;
+}
+
+hr {
+  border-color: var(--bl-border) !important;
+}
+
+::selection {
+  background: #007bff;
+  color: white;
+}

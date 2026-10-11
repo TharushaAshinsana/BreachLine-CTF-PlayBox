@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bl-dashboard">
+  <section class="bl-hero">
+    <div class="bl-hero-content">
+      <div class="bl-eyebrow"><span class="bl-status-dot"></span> CYBER OPERATIONS CENTER</div>
+      <h1>BREACH<span>LINE</span></h1>
+      <p class="bl-hero-tagline">THINK. HACK. CONQUER.</p>
+      <p class="bl-hero-description">Every challenge is a new opportunity. Sharpen your skills, uncover vulnerabilities, and prove your expertise.</p>
+      <a class="bl-explore-btn" href="#bl-missions">EXPLORE MISSIONS <span>↓</span></a>
+    </div>
+    <div class="bl-hero-art" aria-hidden="true">
+      <div class="bl-orbit bl-orbit-one"></div>
+      <div class="bl-orbit bl-orbit-two"></div>
+      <div class="bl-core"><span>BL</span><i></i></div>
+      <div class="bl-art-label">SECURE // EXPLORE // CONQUER</div>
+    </div>
+    <div class="bl-hero-grid"></div>
+  </section>
+
+  <section class="bl-mission-heading" id="bl-missions">
+    <div>
+      <div class="bl-section-kicker">YOUR NEXT MOVE STARTS HERE</div>
+      <h2>MISSION <span>SELECT</span></h2>
+      <p>Choose a challenge. Find the weakness. Capture the flag.</p>
+    </div>
+    <div class="bl-live-label"><span class="bl-status-dot"></span> PLATFORM ONLINE</div>
+  </section>
+
+  {% include "components/errors.html" %}
+
+  <div x-data="ChallengeBoard"
+       @load-challenges.window="loadChallenges()"
+       @load-challenge.window="loadChallenge($event.detail)">
+
+    <div x-ref="challengeWindow" id="challenge-window"
+         class="modal fade" tabindex="-1" role="dialog" x-data=""
+         x-html="$store.challenge.data.view"></div>
+
+    <div x-show="!loaded" class="bl-loading">
+      <i class="fas fa-circle-notch fa-spin fa-2x"></i>
+      <p>INITIALIZING MISSIONS...</p>
+    </div>
+
+    <div x-show="loaded">
+      <template x-for="(category, idx) in getCategories()" :key="idx">
+        <section class="bl-category">
+          <div class="bl-category-heading">
+            <div class="bl-category-symbol">⌘</div>
+            <div>
+              <h3 x-text="category"></h3>
+              <p>AVAILABLE OPERATIONS</p>
+            </div>
+            <div class="bl-category-line"></div>
+          </div>
+
+          <div class="bl-challenge-grid">
+            <template x-for="(c, idx) in getChallenges(category)" :key="c.id">
+              <div class="bl-challenge-slot">
+                <button
+                  class="bl-challenge-card"
+                  :class="[
+                    c.solved_by_me ? 'bl-challenge-solved' : '',
+                    ...c.tags.map((tag) => `tag-${tag.value.replace(/ /g, '-')}`)
+                  ]"
+                  :value="c.id"
+                  @click="loadChallenge(c.id)">
+
+                  <div class="bl-card-top">
+                    <span class="bl-card-index" x-text="'MISSION / ' + String(idx + 1).padStart(2, '0')"></span>
+                    <span class="bl-card-status" x-text="c.solved_by_me ? '✓ COMPLETED' : '● AVAILABLE'"></span>
+                  </div>
+
+                  <div class="bl-card-emblem">
+                    <i class="fas" :class="c.solved_by_me ? 'fa-check-circle' : 'fa-crosshairs'"></i>
+                  </div>
+
+                  <h4 x-text="c.name"></h4>
+                  <div class="bl-card-bottom">
+                    <span>CHALLENGE POINTS</span>
+                    <strong x-text="c.value + ' PTS'"></strong>
+                  </div>
+                  <div class="bl-card-progress">
+                    <span :style="c.solved_by_me ? 'width:100%' : 'width:12%'"></span>
+                  </div>
+                  <div class="bl-card-action" x-text="c.solved_by_me ? 'MISSION COMPLETE ✓' : 'ACCESS MISSION →'"></div>
+                </button>
+              </div>
+            </template>
+          </div>
+        </section>
+      </template>
+    </div>
+  </div>
+
+  <footer class="bl-dashboard-footer">
+    <span>BREACHLINE // CYBERSECURITY TRAINING ENVIRONMENT</span>
+    <span>THINK DIFFERENT. TEST EVERYTHING.</span>
+  </footer>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ Assets.js("assets/js/challenges.js") }}
+{% endblock %}

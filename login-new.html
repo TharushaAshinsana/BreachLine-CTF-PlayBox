@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="bl-login-shell">
+  <div class="bl-login-glow"></div>
+  <div class="bl-login-card">
+    <div class="bl-login-brand">
+      <div class="bl-login-icon">⌘</div>
+      <div class="bl-eyebrow">CYBERSECURITY CHALLENGE PLATFORM</div>
+      <h1>BREACH<span>LINE</span></h1>
+      <p class="bl-tagline">Think. Hack. Conquer.</p>
+    </div>
+    <div class="bl-login-divider"></div>
+    <h2>Welcome Back</h2>
+    <p class="bl-login-subtitle">Your next challenge awaits.</p>
+    {% include "components/errors.html" %}
+    {% with form = Forms.auth.LoginForm() %}
+    <form method="post" accept-charset="utf-8">
+      <div class="bl-field">
+        <label>{{ form.name.label.text }}</label>
+        {{ form.name(class="form-control bl-input", value=name, autocomplete="username email", placeholder="Enter your username or email") }}
+      </div>
+      <div class="bl-field">
+        <label>{{ form.password.label.text }}</label>
+        {{ form.password(class="form-control bl-input", value=password, autocomplete="current-password", placeholder="Enter your password") }}
+      </div>
+      <div class="bl-forgot">
+        <a href="{{ url_for('auth.reset_password') }}">Forgot password?</a>
+      </div>
+      {{ form.submit(class="btn bl-login-button w-100", value="ACCESS THE PLATFORM  →") }}
+      {{ form.nonce() }}
+    </form>
+    {% endwith %}
+    <div class="bl-register-note">New to the battlefield? <a href="{{ url_for('auth.register') }}">Create an account</a></div>
+    <div class="bl-login-footer"><span class="bl-status-dot"></span> SYSTEM ONLINE <span>SECURE ACCESS</span></div>
+  </div>
+  <div class="bl-login-bottom">BREACHLINE // YOUR SKILLS. YOUR MISSION. YOUR FLAG.</div>
+</div>
+{% endblock %}
