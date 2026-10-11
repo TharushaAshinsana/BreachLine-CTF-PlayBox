@@ -37,8 +37,9 @@ docker compose ps
 
 ## Access
 
-* CTFd: http://localhost:8000
-* Nginx entry point: http://localhost
+- Main CTF platform: http://localhost
+- Nginx is the main entry point for web access.
+- CTFd is accessed through Nginx and is not directly published on host port 8000.
 
 ## View Logs
 
@@ -54,13 +55,18 @@ docker compose down
 
 ## Reset and Recovery
 
-Restart services with:
 
-```powershell
-docker compose restart
-```
+To restart all services:
 
-**Warning:** `docker compose down -v` deletes named volumes and may erase saved database data. Only use it when a full reset is intended.
+    docker compose restart
+
+To restart the S3 challenge web application:
+
+    powershell -ExecutionPolicy Bypass -File .\challenges\member2\s3-point-of-entry\reset-s3.ps1
+
+Note: The S3 recovery script restarts the S3 web container. It does not reset the challenge database or erase all challenge data.
+
+Warning: Do not run docker compose down -v unless you intentionally want to delete the named volumes and their stored data.
 
 ## Security Considerations
 
@@ -70,4 +76,6 @@ docker compose restart
 
 ## Implementation Status
 
-The base platform configuration has been prepared. Challenge integration, flag validation and end-to-end testing must be verified before declaring the complete environment operational.
+The Docker-based CTF platform and challenge services have been configured.
+
+The integrated challenges should be tested through the browser, including challenge access and flag submission, before final submission.
