@@ -1,10 +1,11 @@
-services:
+﻿services:
   ctfd:
     image: ctfd/ctfd:latest
     container_name: breachline-ctfd
     restart: unless-stopped
-    ports:
-      - "8000:8000"
+    mem_limit: 512m
+    cpus: 1.0
+
     environment:
       DATABASE_URL: mysql+pymysql://ctfd:ctfdpass@db:3306/ctfd
       REDIS_URL: redis://redis:6379
@@ -42,6 +43,7 @@ services:
     networks:
       - ctf-network
 
+
   # S3 DB (challenge network only)
   s3-db:
     image: mariadb:10.11
@@ -63,6 +65,8 @@ services:
     build: ./challenges/member2/s3-point-of-entry
     container_name: breachline-s3-web
     restart: unless-stopped
+    mem_limit: 512m
+    cpus: 1.0
     environment:
       DB_HOST: s3-db
       DB_USER: portal
